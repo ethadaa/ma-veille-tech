@@ -7,188 +7,179 @@
     <title>Ethan Adato Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Tailwind configuration for neon effect and glassmorphism */
-        @layer utilities {
-            .neon-text-blue {
-                text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6;
-            }
-            .neon-border-blue {
-                box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
-            }
-            .neon-border-green {
-                box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
-            }
-            .neon-border-purple {
-                box-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
-            }
-            .glassmorphism {
-                background-color: rgba(255, 255, 255, 0.05);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
+        /* Custom styles for neon glow and glassmorphism */
+        body {
+            background-color: #0a0a0a; /* Deep black background */
+            font-family: 'Inter', sans-serif;
+        }
+        .neon-border {
+            border: 2px solid;
+            transition: all 0.3s ease-in-out;
+        }
+        .neon-card {
+            background: rgba(18, 18, 18, 0.4); /* Glassmorphism effect base */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .neon-blue { border-color: #0ea5e9; box-shadow: 0 0 10px #0ea5e966; }
+        .neon-green { border-color: #10b981; box-shadow: 0 0 10px #10b98166; }
+        .neon-purple { border-color: #8b5cf6; box-shadow: 0 0 10px #8b5cf666; }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 0.5rem;
+            bottom: -1.5rem;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .timeline-item:last-child::after {
+            display: none;
         }
     </style>
 </head>
-<body class="bg-black text-white font-mono min-h-screen">
+<body class="text-white">
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tighter" style="background-image: linear-gradient(to right, #3b82f6, #a855f7); -webkit-background-clip: text; color: transparent;">
+                Ethan Adato Hub
+            </h1>
+            <p class="text-xl text-gray-400">Cybersecurity, IA & Cloud Intelligence</p>
+        </header>
 
-    <!-- Header -->
-    <header class="p-8 border-b border-gray-800">
-        <h1 class="text-4xl font-bold text-center text-blue-400 neon-text-blue">Ethan Adato Hub</h1>
-        <p class="text-center text-gray-500 mt-2">Veille critique Cybersécurité, IA et Cloud</p>
-    </header>
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Main Content Grid -->
-    <div class="container mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Section: Dernières Alertes -->
+            <div class="md:col-span-2 space-y-6">
+                <h2 class="text-3xl font-semibold border-b border-gray-700 pb-2 text-blue-400">Dernières Alertes Critiques</h2>
 
-        <!-- Section: Latest Alerts -->
-        <section class="md:col-span-2 space-y-6">
-            <h2 class="text-3xl font-bold text-green-400 neon-text-blue">Dernières Alertes (Aujourd'hui)</h2>
+                <!-- Alert Card 1: Cybersecurity Vulnerability -->
+                <article id="news-1" class="neon-card neon-blue p-6 rounded-lg shadow-xl hover:shadow-blue-500/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-sm uppercase font-bold text-red-400 mr-2">Urgence CVE</span>
+                        <span class="text-xs text-gray-500">il y a 2 heures</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-blue-300">Faille Zero-Day critique dans les Firewalls Juniper (CVE-2026-XXXX)</h3>
+                    <p class="text-gray-300 leading-relaxed">Une vulnérabilité de type exécution de code à distance (RCE) a été découverte dans le système d'exploitation Junos OS, affectant des milliers de pare-feu et routeurs Juniper. L'exploitation active est confirmée. Les équipes de sécurité sont en alerte maximale.</p>
+                    <div class="mt-4 flex flex-wrap gap-2 text-sm">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#Cybersecurity</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#ZeroDay</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#RCE</span>
+                    </div>
+                </article>
 
-            <!-- Card 1: Cybersecurity Vulnerability -->
-            <article class="p-6 rounded-lg glassmorphism neon-border-blue shadow-lg hover:shadow-xl transition-all duration-300">
-                <span class="text-xs font-semibold uppercase text-blue-400 bg-blue-900 px-2 py-1 rounded-full">Vulnérabilité Critique</span>
-                <h3 class="mt-3 text-xl font-semibold text-white">Zero-day dans le framework 'StratoCloud'</h3>
-                <p class="text-gray-400 mt-2 text-sm">Une nouvelle vulnérabilité de type zero-day (CVE-2024-XXXXX) a été découverte dans le framework de virtualisation cloud 'StratoCloud', permettant l'exécution de code à distance. Les acteurs malveillants exploitent activement cette faille pour cibler des infrastructures IaaS. Les fournisseurs de cloud ont publié des correctifs d'urgence, mais la propagation est rapide.</p>
-                <div class="mt-4 flex justify-between items-center text-gray-500 text-xs">
-                    <span>Source : Cyb-Alerts</span>
-                    <span>2 min ago</span>
-                </div>
-            </article>
+                <!-- Alert Card 2: AI Security Risk -->
+                <article id="news-2" class="neon-card neon-purple p-6 rounded-lg shadow-xl hover:shadow-purple-500/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-sm uppercase font-bold text-purple-400 mr-2">IA Sécurité</span>
+                        <span class="text-xs text-gray-500">il y a 4 heures</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-purple-300">Analyse : Montée en puissance des attaques par injection de prompt sur les LLM d'entreprise</h3>
+                    <p class="text-gray-300 leading-relaxed">Les chercheurs en sécurité alertent sur l'efficacité croissante des techniques d'injection de prompt pour contourner les défenses des Large Language Models (LLM) internes. Ces attaques peuvent entraîner des fuites de données confidentielles et la compromission des modèles d'IA.</p>
+                    <div class="mt-4 flex flex-wrap gap-2 text-sm">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#AI</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#PromptInjection</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#LLM</span>
+                    </div>
+                </article>
 
-            <!-- Card 2: AI Regulation -->
-            <article class="p-6 rounded-lg glassmorphism neon-border-green shadow-lg hover:shadow-xl transition-all duration-300">
-                <span class="text-xs font-semibold uppercase text-green-400 bg-green-900 px-2 py-1 rounded-full">IA & Réglementation</span>
-                <h3 class="mt-3 text-xl font-semibold text-white">L'Europe renforce la loi sur les Deepfakes</h3>
-                <p class="text-gray-400 mt-2 text-sm">Face à l'augmentation des campagnes de désinformation, le nouveau cadre réglementaire européen sur l'IA impose des obligations de transparence strictes. Les modèles génératifs d'images et de vidéos doivent désormais inclure des filigranes numériques indélébiles pour identifier les contenus synthétiques, sous peine de lourdes sanctions pour les plateformes.</p>
-                <div class="mt-4 flex justify-between items-center text-gray-500 text-xs">
-                    <span>Source : EU AI Act</span>
-                    <span>35 min ago</span>
-                </div>
-            </article>
+                <!-- Alert Card 3: Cloud Misconfiguration -->
+                <article id="news-3" class="neon-card neon-green p-6 rounded-lg shadow-xl hover:shadow-green-500/50 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-sm uppercase font-bold text-green-400 mr-2">Cloud Alert</span>
+                        <span class="text-xs text-gray-500">il y a 6 heures</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-green-300">Brèche de données majeure due à une mauvaise configuration S3 dans un environnement Multi-Cloud</h3>
+                    <p class="text-gray-300 leading-relaxed">Une entreprise Fortune 500 a subi une fuite de données massives suite à une mauvaise configuration des politiques d'accès IAM sur un bucket Amazon S3. Des données sensibles ont été exposées publiquement pendant 48 heures avant d'être découvertes.</p>
+                    <div class="mt-4 flex flex-wrap gap-2 text-sm">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#CloudSecurity</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#AWS</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-white">#Misconfiguration</span>
+                    </div>
+                </article>
 
-            <!-- Card 3: Cloud Security Breach -->
-            <article class="p-6 rounded-lg glassmorphism neon-border-purple shadow-lg hover:shadow-xl transition-all duration-300">
-                <span class="text-xs font-semibold uppercase text-purple-400 bg-purple-900 px-2 py-1 rounded-full">Cloud & Rançongiciel</span>
-                <h3 class="mt-3 text-xl font-semibold text-white">Attaque 'Aegis' : 500 entreprises clientes d'un MSP compromises</h3>
-                <p class="text-gray-400 mt-2 text-sm">Un important fournisseur de services managés (MSP) a été victime d'une attaque par rançongiciel sophistiquée. L'attaque a exploité une faiblesse dans la gestion des accès à distance des environnements cloud hybrides. Les données de plus de 500 PME et grandes entreprises clientes sont potentiellement affectées, soulevant des questions sur la sécurité de la chaîne d'approvisionnement cloud.</p>
-                <div class="mt-4 flex justify-between items-center text-gray-500 text-xs">
-                    <span>Source : SentinelOne</span>
-                    <span>1 hour ago</span>
-                </div>
-            </article>
-            
-            <!-- Card 4: AI Model Vulnerability -->
-            <article class="p-6 rounded-lg glassmorphism neon-border-blue shadow-lg hover:shadow-xl transition-all duration-300">
-                <span class="text-xs font-semibold uppercase text-blue-400 bg-blue-900 px-2 py-1 rounded-full">Vulnérabilité IA</span>
-                <h3 class="mt-3 text-xl font-semibold text-white">Étude sur les attaques par "data poisoning" contre les LLM</h3>
-                <p class="text-gray-400 mt-2 text-sm">Les chercheurs en IA ont publié une étude montrant une augmentation des attaques par "data poisoning" ciblant les grands modèles de langage (LLM). En injectant des données manipulées dans les ensembles d'entraînement, les attaquants peuvent dégrader les performances du modèle, introduire des biais ou forcer le modèle à générer des informations erronées ou malveillantes. Cette menace met en péril l'intégrité des systèmes d'IA.</p>
-                <div class="mt-4 flex justify-between items-center text-gray-500 text-xs">
-                    <span>Source : MIT AI Lab</span>
-                    <span>3 hours ago</span>
-                </div>
-            </article>
-
-            <!-- Card 5: Geopolitical Cyber Activity -->
-            <article class="p-6 rounded-lg glassmorphism neon-border-green shadow-lg hover:shadow-xl transition-all duration-300">
-                <span class="text-xs font-semibold uppercase text-green-400 bg-green-900 px-2 py-1 rounded-full">Cybersécurité Géopolitique</span>
-                <h3 class="mt-3 text-xl font-semibold text-white">Vague d'attaques DDoS ciblant les infrastructures critiques</h3>
-                <p class="text-gray-400 mt-2 text-sm">Des rapports indiquent une intensification des attaques par déni de service distribué (DDoS) contre les infrastructures critiques de plusieurs pays européens. Les attaques, attribuées à des acteurs étatiques, visent principalement les secteurs de l'énergie et des transports. Cette situation souligne l'urgence de renforcer la résilience des réseaux face aux cybermenaces géopolitiques.</p>
-                <div class="mt-4 flex justify-between items-center text-gray-500 text-xs">
-                    <span>Source : CERT-FR</span>
-                    <span>5 hours ago</span>
-                </div>
-            </article>
-        </section>
-
-        <!-- Section: Chronology (Timeline) -->
-        <section class="md:col-span-1 border-l-2 border-dashed border-gray-700 space-y-8 pl-4">
-            <h2 class="text-3xl font-bold text-purple-400 neon-text-blue sticky top-0 bg-black pt-2 pb-2">Chronologie</h2>
-            <div id="timeline-content" class="space-y-4">
-                <!-- Timeline items will be injected here by JavaScript -->
             </div>
-        </section>
+
+            <!-- Section: Chronologie (Timeline) -->
+            <div class="md:col-span-1 space-y-6">
+                <h2 class="text-3xl font-semibold border-b border-gray-700 pb-2 text-green-400">Chronologie des Événements</h2>
+
+                <div class="space-y-4 text-sm" id="timeline-container">
+                    <!-- Timeline items will be populated here by JS, or initially hardcoded -->
+                    <div class="timeline-item">
+                        <p class="text-gray-400 text-sm">il y a 8 heures</p>
+                        <p class="font-bold text-lg text-green-300">Rapport : Vulnérabilités de la chaîne d'approvisionnement logicielle (Supply Chain)</p>
+                        <p class="text-gray-300 text-sm">Les experts en cybersécurité mettent en garde contre une augmentation de 40% des attaques ciblant les dépendances open source. Les scanners de vulnérabilité traditionnels ne suffisent plus.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="text-gray-400 text-sm">Hier</p>
+                        <p class="font-bold text-lg text-purple-300">Réglementation : Le EU AI Act entre en vigueur, impactant les modèles PII</p>
+                        <p class="text-gray-300 text-sm">Les nouvelles exigences de l'Union Européenne imposent des audits stricts pour les systèmes d'IA traitant des informations personnelles identifiables (PII), augmentant la charge de conformité pour les entreprises cloud.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="text-gray-400 text-sm">il y a 2 jours</p>
+                        <p class="font-bold text-lg text-blue-300">Découverte d'un nouveau ransomware ciblant les bases de données Cloud</p>
+                        <p class="text-gray-300 text-sm">Un nouveau groupe de ransomware, 'CloudLock', se spécialise dans le chiffrement des bases de données de production hébergées dans le cloud, exploitant des vulnérabilités d'authentification.</p>
+                    </div>
+                </div>
+
+                <!-- History Display Area (populated by JS) -->
+                <div id="history-section" class="mt-6 p-4 rounded-lg neon-card border-purple-400/50 hidden">
+                    <h4 class="font-semibold text-xl text-purple-400 mb-2">Historique de Navigation</h4>
+                    <ul class="text-sm space-y-1 text-gray-300" id="history-list"></ul>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <!-- JavaScript for localStorage functionality -->
+    <!-- JavaScript for LocalStorage History -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const newsItems = [
-                {
-                    title: "Zero-day dans le framework 'StratoCloud'",
-                    timestamp: new Date().toISOString(),
-                    category: "Vulnérabilité Critique",
-                    description: "Une nouvelle vulnérabilité de type zero-day a été découverte dans le framework de virtualisation cloud 'StratoCloud', permettant l'exécution de code à distance. Les acteurs malveillants exploitent activement cette faille pour cibler des infrastructures IaaS."
-                },
-                {
-                    title: "L'Europe renforce la loi sur les Deepfakes",
-                    timestamp: new Date().toISOString(),
-                    category: "IA & Réglementation",
-                    description: "Le nouveau cadre réglementaire européen sur l'IA impose des obligations de transparence strictes pour les modèles génératifs d'images et de vidéos, notamment l'identification par filigrane."
-                },
-                {
-                    title: "Attaque 'Aegis' : 500 entreprises clientes d'un MSP compromises",
-                    timestamp: new Date().toISOString(),
-                    category: "Cloud & Rançongiciel",
-                    description: "Un important fournisseur de services managés (MSP) a été victime d'une attaque par rançongiciel sophistiquée, exposant potentiellement les données de plus de 500 PME et grandes entreprises clientes."
-                },
-                {
-                    title: "Étude sur les attaques par 'data poisoning' contre les LLM",
-                    timestamp: new Date().toISOString(),
-                    category: "Vulnérabilité IA",
-                    description: "Une augmentation des attaques par 'data poisoning' ciblant les grands modèles de langage (LLM) a été observée. L'injection de données manipulées dans les ensembles d'entraînement peut dégrader les performances du modèle ou introduire des biais."
-                },
-                {
-                    title: "Vague d'attaques DDoS ciblant les infrastructures critiques",
-                    timestamp: new Date().toISOString(),
-                    category: "Cybersécurité Géopolitique",
-                    description: "Des rapports indiquent une intensification des attaques par déni de service distribué (DDoS) contre les infrastructures critiques, attribuées à des acteurs étatiques."
-                }
+                { id: 'news-1', title: 'Faille Zero-Day critique dans les Firewalls Juniper' },
+                { id: 'news-2', title: 'Analyse : Montée en puissance des attaques par injection de prompt' },
+                { id: 'news-3', title: 'Brèche de données majeure due à une mauvaise configuration S3' }
             ];
 
-            // 1. Save news items to localStorage (history)
-            const todayKey = new Date().toDateString();
-            const newsHistory = JSON.parse(localStorage.getItem('newsHistory') || '[]');
+            // Load history from localStorage
+            let history = localStorage.getItem('newsHistory');
+            history = history ? JSON.parse(history) : [];
 
-            // Check if today's news is already saved. If not, add today's news.
-            // This logic ensures we don't duplicate news if refreshed on the same day, but saves a new snapshot daily.
-            if (!newsHistory.some(item => new Date(item.timestamp).toDateString() === todayKey)) {
-                // Prepend today's news to the history.
-                const newHistoryEntry = { date: todayKey, items: newsItems };
-                newsHistory.unshift(newHistoryEntry);
-                localStorage.setItem('newsHistory', JSON.stringify(newsHistory));
+            // Display history section if history exists
+            if (history.length > 0) {
+                const historySection = document.getElementById('history-section');
+                const historyList = document.getElementById('history-list');
+                historySection.classList.remove('hidden');
+                history.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `• ${item.title}`;
+                    historyList.appendChild(listItem);
+                });
             }
 
-            // 2. Display history in the timeline section
-            const timelineContainer = document.getElementById('timeline-content');
-            timelineContainer.innerHTML = ''; // Clear existing content
-
-            newsHistory.forEach(dayEntry => {
-                const dayDiv = document.createElement('div');
-                dayDiv.classList.add('p-3', 'rounded-lg', 'glassmorphism', 'neon-border-purple', 'shadow-md');
-                dayDiv.innerHTML = `
-                    <h4 class="text-lg font-bold text-white mb-2">${dayEntry.date}</h4>
-                    <ul class="text-sm space-y-2">
-                        ${dayEntry.items.map(item => `
-                            <li class="border-b border-gray-700 pb-1 text-gray-400">
-                                <span class="text-xs font-semibold uppercase ${getCategoryColorClass(item.category)} mr-2">${item.category}:</span> ${item.title}
-                            </li>
-                        `).join('')}
-                    </ul>
-                `;
-                timelineContainer.appendChild(dayDiv);
-            });
-            
-            // Helper function for styling categories in history (simplistic version)
-            function getCategoryColorClass(category) {
-                if (category.includes('Vulnérabilité')) return 'text-blue-400';
-                if (category.includes('IA')) return 'text-green-400';
-                if (category.includes('Cloud')) return 'text-purple-400';
-                return 'text-gray-400';
-            }
+            // Save current news items to history when page loads (or when user interacts)
+            // For a simple demo, we save the current set to simulate history for the *next* visit.
+            localStorage.setItem('newsHistory', JSON.stringify(newsItems));
         });
     </script>
-
 </body>
 </html>
 ```
