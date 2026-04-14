@@ -5,219 +5,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Adato Hub</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind CSS pour le mode sombre et les couleurs néon personnalisées -->
     <style>
-        /* Custom Neon Glow effect for cards */
-        .neon-border {
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .neon-border.blue:hover {
-            border-color: #3b82f6; /* Tailwind blue-500 */
-            box-shadow: 0 0 15px #3b82f6;
-        }
-        .neon-border.green:hover {
-            border-color: #10b981; /* Tailwind green-500 */
-            box-shadow: 0 0 15px #10b981;
-        }
-        .neon-border.purple:hover {
-            border-color: #8b5cf6; /* Tailwind purple-500 */
-            box-shadow: 0 0 15px #8b5cf6;
-        }
-        /* Glassmorphism background effect */
-        .glassmorphism {
-            background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        /* Futurist text gradient effect */
-        .text-neon-gradient {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        @layer utilities {
+            .neon-blue {
+                box-shadow: 0 0 10px #00F0FF, 0 0 20px #00F0FF;
+                border: 2px solid #00F0FF;
+            }
+            .neon-green {
+                box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
+                border: 2px solid #00FF00;
+            }
+            .neon-purple {
+                box-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF;
+                border: 2px solid #FF00FF;
+            }
+            .glassmorphism {
+                backdrop-filter: blur(8px);
+                background-color: rgba(255, 255, 255, 0.05);
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 antialiased font-sans">
+<body class="bg-black text-white font-sans min-h-screen">
 
-    <!-- Header -->
-    <header class="py-6 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
-                <span class="text-neon-gradient">Ethan Adato Hub</span>
-            </h1>
-            <p class="mt-2 text-xl text-gray-400">Alertes critiques Cybersécurité, IA et Cloud</p>
-        </div>
+    <!-- Header Futuriste -->
+    <header class="p-6 text-center shadow-lg sticky top-0 bg-black z-10">
+        <h1 class="text-5xl font-extrabold tracking-tight">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">Ethan Adato Hub</span>
+        </h1>
+        <p class="text-gray-400 mt-2 text-xl italic">Cybersécurité, IA et Cloud - L'essentiel du jour</p>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="container mx-auto p-4 md:p-8 space-y-10">
 
-        <!-- Section: Dernières Alertes -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-blue-400">Dernières Alertes Critiques</h2>
-            <div id="latest-alerts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Section Dernières Alertes -->
+        <section id="latest-alerts">
+            <h2 class="text-4xl font-bold border-b-2 border-cyan-500 pb-3 mb-6">Dernières Alertes Critiques</h2>
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- News Item 1: Cybersecurity (Vulnerability) -->
-                <article id="news-1" class="neon-border blue glassmorphism rounded-xl p-6 transition duration-300 transform hover:scale-[1.02]">
-                    <span class="text-sm font-semibold text-red-400 uppercase tracking-wider bg-red-900/30 px-3 py-1 rounded-full">Vulnérabilité Zéro-day</span>
-                    <h3 class="mt-3 text-xl font-bold text-white leading-tight">Zero-day critique dans les serveurs VMware ESXi</h3>
-                    <p class="mt-2 text-gray-400 text-sm">Une nouvelle vulnérabilité de type RCE (Remote Code Execution) a été découverte, permettant à des attaquants non authentifiés de prendre le contrôle complet des hyperviseurs.</p>
-                    <div class="mt-4 flex justify-between items-center text-xs text-gray-500">
-                        <span>Catégorie: Cybersécurité</span>
-                        <span>Date: 13 Avr 2026</span>
+                <!-- Article 1: Cybersécurité (Néon Bleu) -->
+                <article id="news-item-1" class="neon-blue glassmorphism p-6 rounded-xl transition-all hover:scale-[1.02] duration-300">
+                    <div class="flex items-center space-x-3 text-cyan-400 mb-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold text-xl">ALERTE VULNÉRABILITÉ</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Cloudburst : Vulnérabilité critique dans les conteneurs Kubernetes</h3>
+                    <p class="text-gray-300 leading-relaxed">Une faille 0-day découverte dans le runtime Kubelet permet l'escalade de privilèges et l'accès non autorisé aux hôtes. Les environnements Cloud natifs sont particulièrement exposés. Patchs urgents requis pour tous les déploiements.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-cyan-600 rounded-full text-sm font-medium">Cybersécurité</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">Cloud</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">CVE-2026-XXXX</span>
                     </div>
                 </article>
 
-                <!-- News Item 2: Cloud Security -->
-                <article id="news-2" class="neon-border green glassmorphism rounded-xl p-6 transition duration-300 transform hover:scale-[1.02]">
-                    <span class="text-sm font-semibold text-green-400 uppercase tracking-wider bg-green-900/30 px-3 py-1 rounded-full">Alerte Cloud</span>
-                    <h3 class="mt-3 text-xl font-bold text-white leading-tight">Misconfiguration Azure AD expose 100 000 comptes d'entreprise</h3>
-                    <p class="mt-2 text-gray-400 text-sm">Des chercheurs en sécurité ont révélé qu'une mauvaise configuration par défaut de l'authentification multifacteur dans Azure AD a rendu des milliers de comptes vulnérables au phishing.</p>
-                    <div class="mt-4 flex justify-between items-center text-xs text-gray-500">
-                        <span>Catégorie: Cloud</span>
-                        <span>Date: 12 Avr 2026</span>
+                <!-- Article 2: IA (Néon Vert) -->
+                <article id="news-item-2" class="neon-green glassmorphism p-6 rounded-xl transition-all hover:scale-[1.02] duration-300">
+                    <div class="flex items-center space-x-3 text-green-400 mb-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 12a1 1 0 112 0 1 1 0 01-2 0zm1-8a1 1 0 00-1 1v5a1 1 0 002 0V5a1 1 0 00-1-1z"></path></svg>
+                        <span class="font-semibold text-xl">ACTUALITÉ IA</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Attaque par injection de prompt avancée sur les modèles d'IA générative</h3>
+                    <p class="text-gray-300 leading-relaxed">Des chercheurs ont démontré une nouvelle méthode d'injection de prompt permettant de contourner les filtres de sécurité des grands modèles de langage (LLM). Le risque d'exfiltration de données d'entreprise via ces modèles augmente.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-600 rounded-full text-sm font-medium">IA</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">Sécurité</span>
                     </div>
                 </article>
 
-                <!-- News Item 3: AI Security/Risks -->
-                <article id="news-3" class="neon-border purple glassmorphism rounded-xl p-6 transition duration-300 transform hover:scale-[1.02]">
-                    <span class="text-sm font-semibold text-purple-400 uppercase tracking-wider bg-purple-900/30 px-3 py-1 rounded-full">Risque IA</span>
-                    <h3 class="mt-3 text-xl font-bold text-white leading-tight">Détournement de LLM par attaques par injection de prompts</h3>
-                    <p class="mt-2 text-gray-400 text-sm">Nouvelle vague d'attaques adverses ciblant les grands modèles de langage (LLM). Les attaquants parviennent à contourner les garde-fous de sécurité pour générer du contenu malveillant.</p>
-                    <div class="mt-4 flex justify-between items-center text-xs text-gray-500">
-                        <span>Catégorie: IA</span>
-                        <span>Date: 13 Avr 2026</span>
+                <!-- Article 3: Cloud (Néon Violet) -->
+                <article id="news-item-3" class="neon-purple glassmorphism p-6 rounded-xl transition-all hover:scale-[1.02] duration-300">
+                    <div class="flex items-center space-x-3 text-purple-400 mb-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v10H4V6zm2 2a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H7a1 1 0 01-1-1V8z"></path></svg>
+                        <span class="font-semibold text-xl">ALERTE INFRASTRUCTURE</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Panne majeure d'AWS S3 affectant les services mondiaux</h3>
+                    <p class="text-gray-300 leading-relaxed">Un incident de configuration a provoqué une panne généralisée du service de stockage AWS S3, entraînant des perturbations sur des milliers d'applications et de sites web à travers le monde pendant plusieurs heures.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-600 rounded-full text-sm font-medium">Cloud</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">AWS</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">Indisponibilité</span>
                     </div>
                 </article>
 
-                <!-- News Item 4: Cybersecurity (Malware) -->
-                <article id="news-4" class="neon-border blue glassmorphism rounded-xl p-6 transition duration-300 transform hover:scale-[1.02]">
-                    <span class="text-sm font-semibold text-red-400 uppercase tracking-wider bg-red-900/30 px-3 py-1 rounded-full">Malware critique</span>
-                    <h3 class="mt-3 text-xl font-bold text-white leading-tight">Le ransomware "ShadowCrypt" cible les PME via RDP</h3>
-                    <p class="mt-2 text-gray-400 text-sm">Un nouveau groupe de ransomware utilise des ports RDP exposés pour chiffrer les données de petites et moyennes entreprises, demandant des rançons élevées en crypto-monnaie.</p>
-                    <div class="mt-4 flex justify-between items-center text-xs text-gray-500">
-                        <span>Catégorie: Cybersécurité</span>
-                        <span>Date: 11 Avr 2026</span>
+                <!-- Article 4: Cybersécurité/IA (Néon Vert) -->
+                <article id="news-item-4" class="neon-green glassmorphism p-6 rounded-xl transition-all hover:scale-[1.02] duration-300">
+                    <div class="flex items-center space-x-3 text-green-400 mb-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold text-xl">CYBER MENACE</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Nouveau ransomware "Chameleon" alimenté par l'IA</h3>
+                    <p class="text-gray-300 leading-relaxed">Un nouveau variant de ransomware utilise l'IA pour analyser les réseaux victimes et s'adapter dynamiquement, rendant les signatures de détection traditionnelles inefficaces. Il cible les serveurs Cloud privés et les bases de données. </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-600 rounded-full text-sm font-medium">IA</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">Cybersécurité</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">Ransomware</span>
                     </div>
                 </article>
 
-                <!-- News Item 5: AI & Cloud Integration -->
-                <article id="news-5" class="neon-border purple glassmorphism rounded-xl p-6 transition duration-300 transform hover:scale-[1.02]">
-                    <span class="text-sm font-semibold text-purple-400 uppercase tracking-wider bg-purple-900/30 px-3 py-1 rounded-full">Innovation IA/Cloud</span>
-                    <h3 class="mt-3 text-xl font-bold text-white leading-tight">Nouvelle directive européenne sur la gouvernance de l'IA dans le cloud</h3>
-                    <p class="mt-2 text-gray-400 text-sm">L'Union Européenne publie les lignes directrices pour l'application de l'AI Act, imposant de nouvelles exigences de transparence et de sécurité aux fournisseurs de services cloud.</p>
-                    <div class="mt-4 flex justify-between items-center text-xs text-gray-500">
-                        <span>Catégorie: IA / Cloud</span>
-                        <span>Date: 10 Avr 2026</span>
+                <!-- Article 5: Cybersécurité (Néon Bleu) -->
+                <article id="news-item-5" class="neon-blue glassmorphism p-6 rounded-xl transition-all hover:scale-[1.02] duration-300">
+                    <div class="flex items-center space-x-3 text-cyan-400 mb-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 12a1 1 0 112 0 1 1 0 01-2 0zm1-8a1 1 0 00-1 1v5a1 1 0 002 0V5a1 1 0 00-1-1z"></path></svg>
+                        <span class="font-semibold text-xl">MENACE ÉTATIQUES</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Campagne d'espionnage sophistiquée ciblant les infrastructures critiques</h3>
+                    <p class="text-gray-300 leading-relaxed">Un groupe d'attaquants parrainé par un État-nation mène une campagne de cyberespionnage en ciblant les réseaux d'énergie et de télécommunications. Les attaques utilisent des techniques de "living off the land" pour rester indétectables.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-cyan-600 rounded-full text-sm font-medium">Cybersécurité</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm font-medium">APT</span>
                     </div>
                 </article>
+
             </div>
         </section>
 
-        <!-- Section: Chronologie Historique -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 text-green-400">Chronologie Historique des Alertes</h2>
-            <div id="history-timeline" class="relative">
-                <!-- Timeline elements will be populated here by JS -->
-                <div class="absolute w-0.5 bg-gray-700 h-full left-3 top-0"></div>
-                <!-- Example item (placeholder) -->
-                <div class="mb-8 ml-6 relative">
-                    <div class="absolute w-4 h-4 rounded-full bg-blue-500 border-2 border-gray-900 -left-6 top-1"></div>
-                    <p class="text-gray-400 text-sm font-bold">Historique vide pour le moment.</p>
-                </div>
+        <!-- Section Chronologie (Historique) -->
+        <section id="timeline-section" class="mt-16">
+            <h2 class="text-4xl font-bold border-b-2 border-purple-500 pb-3 mb-6">Chronologie de l'Historique des Alertes</h2>
+            <div id="history-container" class="space-y-4">
+                <!-- Les alertes historiques seront insérées ici par JavaScript -->
             </div>
+            <p id="no-history-message" class="text-gray-500 italic mt-4 hidden">Aucune alerte historique enregistrée. L'historique sera sauvegardé après la première visite.</p>
         </section>
 
     </main>
 
-    <!-- Internal JavaScript for Local Storage History -->
+    <!-- Script JavaScript pour la gestion du localStorage -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const historyContainer = document.getElementById('history-timeline');
-            const latestAlertsContainer = document.getElementById('latest-alerts-container');
+            const historyContainer = document.getElementById('history-container');
+            const noHistoryMessage = document.getElementById('no-history-message');
 
-            // 1. Define current news articles (simulating data retrieval)
-            const newsData = [
-                { id: 'news-1', category: 'Cybersécurité', title: 'Zero-day critique dans les serveurs VMware ESXi', date: '13 Avr 2026' },
-                { id: 'news-2', category: 'Cloud', title: 'Misconfiguration Azure AD expose 100 000 comptes d\'entreprise', date: '12 Avr 2026' },
-                { id: 'news-3', category: 'IA', title: 'Détournement de LLM par attaques par injection de prompts', date: '13 Avr 2026' },
-                { id: 'news-4', category: 'Cybersécurité', title: 'Le ransomware "ShadowCrypt" cible les PME via RDP', date: '11 Avr 2026' },
-                { id: 'news-5', category: 'IA / Cloud', title: 'Nouvelle directive européenne sur la gouvernance de l\'IA', date: '10 Avr 2026' }
+            // 1. Définir les news du jour (pour la sauvegarde)
+            const todayNews = [
+                { id: 1, title: "Cloudburst : Vulnérabilité critique dans les conteneurs Kubernetes", date: new Date().toLocaleDateString('fr-FR') },
+                { id: 2, title: "Attaque par injection de prompt avancée sur les modèles d'IA générative", date: new Date().toLocaleDateString('fr-FR') },
+                { id: 3, title: "Panne majeure d'AWS S3 affectant les services mondiaux", date: new Date().toLocaleDateString('fr-FR') },
+                { id: 4, title: "Nouveau ransomware 'Chameleon' alimenté par l'IA", date: new Date().toLocaleDateString('fr-FR') },
+                { id: 5, title: "Campagne d'espionnage sophistiquée ciblant les infrastructures critiques", date: new Date().toLocaleDateString('fr-FR') }
             ];
 
-            // 2. Load history from localStorage
-            let history = JSON.parse(localStorage.getItem('newsHistory')) || [];
+            // 2. Fonction pour charger l'historique depuis localStorage
+            function loadHistory() {
+                try {
+                    const savedHistory = JSON.parse(localStorage.getItem('newsHistory')) || [];
+                    if (savedHistory.length > 0) {
+                        historyContainer.innerHTML = ''; // Clear existing content
+                        noHistoryMessage.classList.add('hidden');
 
-            // 3. Update history with today's news
-            const todayDate = new Date().toLocaleDateString('fr-FR');
-            const newHistoryItems = newsData.map(item => ({ ...item, savedDate: todayDate }));
-            
-            // Add unique items (prevent duplicates if user visits multiple times a day)
-            newHistoryItems.forEach(newItem => {
-                const exists = history.some(item => item.id === newItem.id && item.savedDate === newItem.savedDate);
-                if (!exists) {
-                    history.push(newItem);
-                }
-            });
-            localStorage.setItem('newsHistory', JSON.stringify(history));
-
-            // 4. Render history timeline
-            renderHistory(history);
-
-            function renderHistory(historyList) {
-                // Clear initial placeholder content
-                historyContainer.innerHTML = '';
-                
-                // Add the vertical line first
-                const timelineLine = document.createElement('div');
-                timelineLine.className = 'absolute w-0.5 bg-gray-700 h-full left-3 top-0';
-                historyContainer.appendChild(timelineLine);
-
-                // Sort history by date descending
-                const sortedHistory = historyList.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                sortedHistory.forEach(item => {
-                    // Create timeline item element
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'mb-8 ml-6 relative';
-
-                    // Determine color based on category
-                    let circleColorClass;
-                    if (item.category.includes('Cybersécurité')) {
-                        circleColorClass = 'bg-red-500';
-                    } else if (item.category.includes('IA')) {
-                        circleColorClass = 'bg-purple-500';
-                    } else if (item.category.includes('Cloud')) {
-                        circleColorClass = 'bg-green-500';
+                        // Afficher les 10 dernières entrées pour ne pas surcharger
+                        savedHistory.slice(0, 10).forEach(entry => {
+                            const entryElement = document.createElement('div');
+                            entryElement.className = 'p-4 glassmorphism rounded-lg border border-gray-700 hover:border-purple-500 transition-colors duration-300';
+                            entryElement.innerHTML = `
+                                <h4 class="font-bold text-lg text-purple-300">${entry.date}</h4>
+                                <ul class="list-disc ml-5 mt-2 text-gray-400">
+                                    ${entry.news.map(item => `<li>${item.title}</li>`).join('')}
+                                </ul>
+                            `;
+                            historyContainer.appendChild(entryElement);
+                        });
                     } else {
-                        circleColorClass = 'bg-blue-500';
+                        noHistoryMessage.classList.remove('hidden');
                     }
-
-                    // Timeline circle (point)
-                    const circle = document.createElement('div');
-                    circle.className = `absolute w-4 h-4 rounded-full ${circleColorClass} border-2 border-gray-900 -left-6 top-1 transform`;
-
-                    // Content details
-                    const content = document.createElement('div');
-                    content.className = 'p-4 glassmorphism rounded-lg hover:bg-white/10 transition duration-300';
-                    content.innerHTML = `
-                        <p class="text-xs text-gray-400 font-bold mb-1">${item.date} (${item.category})</p>
-                        <p class="text-white font-semibold">${item.title}</p>
-                    `;
-
-                    itemElement.appendChild(circle);
-                    itemElement.appendChild(content);
-                    historyContainer.appendChild(itemElement);
-                });
+                } catch (e) {
+                    console.error("Erreur de chargement de l'historique:", e);
+                    noHistoryMessage.classList.remove('hidden');
+                }
             }
 
-            // Optional: clear history button (for testing)
-            // document.getElementById('clear-history').addEventListener('click', () => {
-            //     localStorage.removeItem('newsHistory');
-            //     renderHistory([]);
-            // });
+            // 3. Fonction pour sauvegarder les news du jour dans l'historique
+            function saveCurrentNews() {
+                try {
+                    // Récupérer l'historique existant ou initialiser un tableau vide
+                    let savedHistory = JSON.parse(localStorage.getItem('newsHistory')) || [];
+
+                    // Créer l'entrée pour aujourd'hui
+                    const todayEntry = {
+                        date: new Date().toLocaleDateString('fr-FR'),
+                        news: todayNews
+                    };
+
+                    // Vérifier si une entrée pour aujourd'hui existe déjà
+                    const existingTodayEntryIndex = savedHistory.findIndex(entry => entry.date === todayEntry.date);
+
+                    if (existingTodayEntryIndex === -1) {
+                        // Ajouter la nouvelle entrée au début de l'historique
+                        savedHistory.unshift(todayEntry);
+                        // Limiter l'historique aux 30 dernières entrées (pour éviter l'encombrement)
+                        savedHistory = savedHistory.slice(0, 30);
+                        localStorage.setItem('newsHistory', JSON.stringify(savedHistory));
+                    }
+                } catch (e) {
+                    console.error("Erreur de sauvegarde de l'historique:", e);
+                }
+            }
+
+            // Exécution lors du chargement de la page
+            saveCurrentNews(); // Sauvegarde les news de la visite actuelle (pour la prochaine fois)
+            loadHistory();     // Charge l'historique des visites précédentes
         });
     </script>
 
